@@ -1,0 +1,148 @@
+/*!
+Theme Name: Polash
+Theme URI: http://underscores.me/
+Author: Underscores.me
+Author URI: http://underscores.me/
+Description: Description
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: polash
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned.
+
+Polash is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+
+
+.b-crumbs {
+  font-size: 14px;
+  padding: 0 0 1px 0;
+  margin: 0;
+  text-align: center;
+}
+.b-crumbs li {
+  display: inline-block;
+  margin: 0 32px 6px 0;
+  padding: 0;
+  line-height: 1.7;
+  position: relative;
+}
+.b-crumbs li:after {
+  position: absolute;
+  content: "\f105";
+  font-size: 12px;
+  font-family: "Font Awesome 5 Pro";
+  display: block;
+  left: auto;
+  top: 0;
+  line-height: 1;
+  margin: 6px 0 0;
+  right: -22px;
+}
+.b-crumbs li:last-child {
+  margin-right: 0;
+}
+.b-crumbs li:last-child:after {
+  display: none;
+}
+.b-crumbs li a {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0,0,0,0);
+  transition: all 0.2s;
+  line-height: 100%;
+}
+.b-crumbs li:after,
+.b-crumbs li span {
+  color: #fff;
+}
+.b-crumbs li a:hover span,
+.b-crumbs li:hover:after{
+  color: #616161;
+}
+
+.b-crumbs li a:hover span{
+  border-bottom: 1px solid #373d54;
+  text-decoration: none;
+}
+
+/* next prev */
+.child-pagination,
+.posts-navigation,
+.post-navigation {
+    margin-top: 50px;
+
+}
+.child-pagination {
+  overflow: hidden;
+}
+.posts-navigation .nav-links,
+.post-navigation .nav-links {
+display: flex;
+justify-content: space-between ;
+     
+}
+.child-pagination a,
+.posts-navigation a,
+.post-navigation a {
+    font-size: 12px;
+    font-weight: 300;
+    background: #222;
+    color: #fff;
+    padding: 12px 24px;
+    transition: all 0.3s ease 0s;
+}
+.nav-previous, .nav-next {
+  display: flex;
+}
+.child-pagination a:hover,
+.posts-navigation a:hover,
+.post-navigation a:hover {
+    background: #f6214b;
+}
+.child-pagination .previous-page:before,
+.nav-previous a:before {
+    content: "\e879";
+      margin-left: -13px;
+      margin-right: 5px;
+}
+.child-pagination .next-page:after,
+.nav-next a:after {
+    content: "\e87a";
+    margin-left: 5px;
+  margin-right: -13px;
+}
+.child-pagination .previous-page:before,
+.child-pagination .next-page:after,
+.nav-previous a:before, .nav-next a:after {
+  font-family: 'Linearicons-Free';
+  font-weight: 700;
+}
+
+.navigation.pagination {
+    text-align:  center;
+    width: 100%;
+    overflow:  hidden;
+    margin-top: 50px;
+}
+
+.nav-links {
+    width: 100%;
+}
+
+.page-numbers {
+    display:  inline-block;
+    background: #04091e;
+    padding: 5px 10px;
+    color: #fff;
+}
+.page-numbers.current {
+    color: #04091e;
+    background-color: #ecf0f1;
+}
