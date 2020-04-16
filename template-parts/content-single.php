@@ -1,19 +1,19 @@
-<!-- blog-area-start -->
+<!--blog-area-start -->
 <div class="blog-grid-area pt-130 pb-100">
     <div class="container">
         <div class="row">
             <div class="col-xl-8 col-lg-8 mb-30">
                 <div class="blog-details-wrapper blog-standard">
                     <div class="blog-img">
-                      <?php the_post_thumbnail(); ?>
+                      <?php // the_post_thumbnail(); ?>
                     </div>
                     <div class="blog-content blog-02-content">
+                        <div class="blog-title">
+                            <h3><?php the_title()?></h3>
+                        </div>
                         <div class="blog-meta">
                             <span><i class="far fa-calendar-alt"></i> <?php the_time('F j, Y'); ?> </span>
                             <span><i class="far fa-comment"></i> <a href="<?php the_permalink(); ?>"><?php echo get_comments_number();?></a></span>
-                        </div>
-                        <div class="blog-title">
-                            <h3><?php the_title()?> <?php edit_post_link(); ?> </h3>
                         </div>
                         <div style="clear: both;overflow: hidden;">
                             <?php the_content()?>
@@ -23,13 +23,10 @@
 
 
                     <div class="row mt-20">
-						<div class="col-xl-8 col-lg-7 col-md-6">
-							<div class="blog-post-tag">
-								<span>Tags : </span>
-                                <?php echo get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'polash' ) ); ?>
-							</div>
+						<div class="col-md-12">
+                            <?php polash_entry_footer(); ?>
 						</div>
-						<div class="col-xl-4 col-lg-5 col-md-6">
+<!-- 						<div class="col-xl-4 col-lg-5 col-md-6"> xl-8 col-lg-7 col-md-6
 							<div class="blog-share-icon text-left text-md-right">
 								<span>Share: </span>
                                     <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -37,7 +34,7 @@
                                     <a href="#"><i class="fab fa-behance"></i></a>
                                     <a href="#"><i class="fab fa-youtube"></i></a>
 							</div>
-						</div>
+						</div> -->
                     </div>
 
 
@@ -69,11 +66,15 @@
                     </div>
 
 
-                    <div class="post-comments">
-                        <div class="blog-coment-title mb-30">
-                            <h2><?php echo get_comments_number();?></h2>
-                        </div>
-                        <div class="latest-comments">
+                    <div class="post-comments mt-5">
+                    <?php
+                        // If comments are open or we have at least one comment, load up the comment template.
+                        if ( comments_open() || get_comments_number() ) :
+                            comments_template();
+                        endif;
+                    ?>
+
+<!--                         <div class="latest-comments">
                             <ul>
                                 <li>
                                     <div class="comments-box">
@@ -116,9 +117,9 @@
 
 
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
-                    <div class="post-comments-form">
+<!--                     <div class="post-comments-form">
                         <div class="post-comments-title">
                             <h2>Post Comments</h2>
                         </div>
@@ -149,15 +150,13 @@
                                 </div>
                             </div>
                         </form>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="col-xl-4 col-lg-4 mb-30">
-                <div class="blog-sidebar">
-                    <?php get_sidebar(); ?>
-                </div>
+                <?php get_sidebar(); ?>
             </div>
         </div>
     </div>
 </div>
-<!-- blog-area-end -->
+<!-- blog-area-end

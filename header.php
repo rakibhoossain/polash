@@ -24,9 +24,6 @@
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 	<!-- <a class="skip-link screen-reader-text" href="#content"><?php //esc_html_e( 'Skip to content', 'polash' ); ?></a> -->
-
-
-
         <!-- header-start -->
         <header>
             <div class="header-top-area black-bg">
@@ -37,11 +34,6 @@
                                 <div class="header-info">
                                     <span><i class="far fa-envelope-open"></i> <a href="mailto:<?php echo get_theme_mod( 'magazil_email', 'serakib@gmail.com' ); ?>" class="__cf_email__"><?php echo get_theme_mod( 'magazil_email', 'serakib@gmail.com' ); ?></a></span>
                                 </div>
-
-
-
-
-                                
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-4 col-md-7 col-4">
@@ -53,63 +45,27 @@
                                     <a href="<?php echo wp_login_url(); ?>"><i class="far fa-user"></i> Login</a>
                                     <?php endif; ?>
                                 </div>
-<div class="header-icon nav f-right d-none d-md-block">
-
+                                <div class="header-icon nav f-right d-none d-md-block">
 									<?php
 									if ( has_nav_menu( 'social' ) ) {
-										wp_nav_menu( array(
-											'theme_location'    => 'social',
-											'menu_class'        => 'social-menu',
-											'container'         => false,
-											'depth'          => 0,
-
-											'before'        => '',
-                    						'after'     => '',
-											
-											'link_before'    => '<span class="screen-reader-text">',
-											'link_after'     => '</span><i class="fa fa-chain"></i>',
-											'items_wrap' => '%3$s',
-											'before'    => '',
-											'after'    => '',
-										) );
+										$primaryMenu = array(
+										'theme_location'    => 'social',
+										'menu_class'        => 'social-menu',
+										'container'         => false,
+										'depth'          => 0,
+										'before'        => '',
+                						'after'     => '',
+										'link_before'    => '<span class="screen-reader-text">',
+										'link_after'     => '</span><i class="fa fa-chain"></i>',
+										'items_wrap' => '%3$s',
+										'before'    => '',
+										'after'    => '',
+                                        'echo'            => false,
+										);
+                                        echo strip_tags( wp_nav_menu( $primaryMenu ), '<i><a><span>' );
 									}
 									?>
-
-
-				<?php
-$primaryMenu = array(
-    'theme_location'  => 'social',
-    'menu'            => '',
-    'container'       => '',
-    'container_class' => false,
-    'container_id'    => '',
-    'menu_class'      => 'menu',
-    'menu_id'         => 'primary-menu',
-    'echo'            => false,
-    // 'fallback_cb'     => 'wp_page_menu',
-    'before'          => '',
-    'after'           => '',
-    'link_before'     => '',
-    'link_after'      => '',
-    'depth'           => 0,
-    'walker'          => ''
-);
-echo strip_tags( wp_nav_menu( $primaryMenu ), '<a><i><span>' );
-                ?>
-
-
-
-
-
-<!--                                     <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                                    <a href="#"><i class="fab fa-dribbble"></i></a>
-                                    <a href="#"><i class="fab fa-linkedin"></i></a> -->
                                 </div>
-
-
-
                             </div>
                         </div>
                     </div>
@@ -169,19 +125,9 @@ echo strip_tags( wp_nav_menu( $primaryMenu ), '<a><i><span>' );
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="news-scroll">
-              <ul>
-
-                <li>
-                    <a href="#">
-                        <span>FFFFF</span>
-                    </a>
-                </li>
-
-              </ul>
+                <?php get_template_part( 'inc/components/breaking-news' ); // Get Breaking News template ?>
             </div>
         </header>
-
-	<div id="content" class="site-content">
+        
+	   <div id="content" class="site-content">
 		<main>

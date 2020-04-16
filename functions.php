@@ -46,6 +46,7 @@ if ( ! function_exists( 'polash_setup' ) ) :
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
 		add_theme_support( 'post-thumbnails' );
+		add_image_size( 'post-thumb', 370, 250, true );
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
@@ -119,6 +120,17 @@ function polash_content_width() {
 add_action( 'after_setup_theme', 'polash_content_width', 0 );
 
 /**
+ * Footer widget size implement.
+ * Return []
+ */
+function magazil_footer_widget_size() {
+	$widget_size = get_theme_mod( 'magazil_footer_widget_size', '3,4,5');
+	if (empty($widget_size)) return;
+	$widget_size_array = explode(',', $widget_size);
+	if (empty($widget_size_array)) return;
+	return $widget_size_array;
+}
+/**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
@@ -128,13 +140,29 @@ function polash_widgets_init() {
 		array(
 			'name'          => esc_html__( 'Sidebar', 'polash' ),
 			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'polash' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
+			'description'   => esc_html__( 'Add sidebar widgets here.', 'polash' ),
+			'before_widget' => '<div id="%1$s" class="widget %2$s mb-60">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<div class="widget-title-box mb-35"><h3 class="widget-title-2">',
+			'after_title'   => '</h3></div>',
 		)
 	);
+
+	$footer_widget = magazil_footer_widget_size();
+	if (is_array($footer_widget) && !empty($footer_widget)) {
+
+		foreach ($footer_widget as $key => $value) {
+			register_sidebar( array(
+				'name'          => esc_attr__( 'Footer ', 'polash' ).($key+1),
+				'id'            => 'footer-'.($key+1),
+				'description'   => esc_attr__( 'Add widgets here to appear in your footer.', 'polash' ),
+				'before_widget' => '<div id="%1$s" class="footer-wrapper mb-30 %2$s">',
+				'after_widget'  => '</div>',
+				'before_title'  => '<h3 class="footer-title">',
+				'after_title'   => '</h3>',
+			) );
+		}
+	}
 }
 add_action( 'widgets_init', 'polash_widgets_init' );
 

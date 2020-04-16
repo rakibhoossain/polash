@@ -9,7 +9,8 @@
 
 ?>
 
-<section class="no-results not-found">
+<section class="no-results not-found pt-130 pb-100">
+	<div class="container">
 	<header class="page-header">
 		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'polash' ); ?></h1>
 	</header><!-- .page-header -->
@@ -48,4 +49,5 @@
 		endif;
 		?>
 	</div><!-- .page-content -->
+	</div>
 </section><!-- .no-results -->

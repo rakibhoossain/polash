@@ -7,11 +7,15 @@
     <div class="blog-wrapper mb-80">
         <div class="blog-img">
             <?php if(has_post_thumbnail()): ?>
-            <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a>
+            <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('post-thumb'); ?></a>
             <?php endif; ?>
         </div>
         <div class="blog-content blog-02-content">
             <div class="blog-meta">
+
+<?php // polash_entry_footer(); ?>
+
+
                 <span><i class="far fa-calendar-alt"></i> <a href="<?php the_permalink(); ?>"><time><?php the_time('F j, Y'); ?></time></a></span>
                 <span><i class="far fa-comment"></i> <a href="<?php the_permalink(); ?>"><?php echo get_comments_number();?><a></span>
             </div>

@@ -142,7 +142,7 @@ function magazil_nav_menu_social_icons( $item_output, $item, $depth, $args ) {
     foreach ( $social_icons as $attr => $value ) {
       if ( false !== strpos( $item_output, $attr ) ) {
 
-        $item_output = str_replace( $args->link_after, '</span><i class="fa fa-'.esc_attr( $value ).'"></i>', $item_output );
+        $item_output = str_replace( $args->link_after, '</span><i class="fab fa-'.esc_attr( $value ).'"></i>', $item_output );
       }
     }
   }
@@ -300,3 +300,28 @@ function magazil_tag_list() {
 
   return $tags;
 }
+
+
+// Shortcode
+function post_function( $atts = array() ) {
+  // set up default parameters
+  extract(shortcode_atts(array(
+   'type' => 'post',
+   'item' => 3
+  ), $atts));
+?>
+<div class="container">
+  <div class="row">
+  <?php
+      $args = array( 'post_type' => $type, 'posts_per_page' => $item ,'ignore_sticky_posts' => 1);
+      $loop = new WP_Query( $args );
+      while ( $loop->have_posts() ) : $loop->the_post();
+        get_template_part( 'template-parts/content', 'post' );
+      endwhile;
+  ?>
+  </div>
+</div>
+<?php
+}
+// add_filter( 'widget_text', 'do_shortcode' );
+add_shortcode('POLASH_POST', 'post_function');

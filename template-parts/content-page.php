@@ -8,11 +8,15 @@
  */
 
 ?>
+<div class="case-area">
+	<div class="container">
+	<div class="row">
+		<div class="col-md-12">
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
+<!-- 	<header class="entry-header">  pt-130 pb-130
+		<?php //the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+	</header>.entry-header -->
 
 	<?php polash_post_thumbnail(); ?>
 
@@ -52,3 +56,13 @@
 		</footer><!-- .entry-footer -->
 	<?php endif; ?>
 </article><!-- #post-<?php the_ID(); ?> -->
+		<?php
+		// If comments are open or we have at least one comment, load up the comment template.
+		if ( comments_open() || get_comments_number() ) :
+			comments_template();
+		endif;
+		?>
+		</div>
+	</div>
+	</div>
+</div>
