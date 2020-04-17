@@ -250,7 +250,7 @@ function magazil_breaking_news_type() {
   $news[ 'page' ]       = esc_html__( 'Pages', 'magazil' );
   $news[ 'category' ]   = esc_html__( 'Categories', 'magazil' );
   $news[ 'tag' ]        = esc_html__( 'Tags', 'magazil' );
-  $news[ 'custom' ]        = esc_html__( 'Custom', 'magazil' );
+  $news[ 'custom' ]     = esc_html__( 'Custom', 'magazil' );
 
   return $news;
 }
@@ -304,6 +304,7 @@ function magazil_tag_list() {
 
 // Shortcode
 function post_function( $atts = array() ) {
+  ob_start();
   // set up default parameters
   extract(shortcode_atts(array(
    'type' => 'post',
@@ -322,6 +323,11 @@ function post_function( $atts = array() ) {
   </div>
 </div>
 <?php
+wp_reset_postdata();
+return ob_get_clean();
 }
 // add_filter( 'widget_text', 'do_shortcode' );
 add_shortcode('POLASH_POST', 'post_function');
+
+require_once trailingslashit(get_template_directory()) . '/inc/shortcode-blog.php';
+require_once trailingslashit(get_template_directory()) . '/inc/shortcode-activity.php';
