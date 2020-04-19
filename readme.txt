@@ -36,3 +36,16 @@ Polash includes support for Infinite Scroll in Jetpack.
 
 * Based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
 * normalize.css https://necolas.github.io/normalize.css/, (C) 2012-2018 Nicolas Gallagher and Jonathan Neal, [MIT](https://opensource.org/licenses/MIT)
+
+
+[POLASH_NARSHINDI]
+
+POLASH_FRONT_ACTIVITY
+POLASH_FRONT_POST
+
+   'type' => 'post',
+   'item' => 5,
+   'pt' => 130,
+   'pb' => 205,
+   'title' => '',
+   'sub_title' => ''

@@ -121,7 +121,9 @@ endif;
 
 
 
-
+// add_filter( 'excerpt_more', function() {
+//   return '<a class="btn green-btn" href="'. get_permalink( get_the_ID() ) . '">আরো পড়ুন  <i class="far fa-long-arrow-right"></i></a>';
+// });
 
 
 /**
@@ -301,33 +303,6 @@ function magazil_tag_list() {
   return $tags;
 }
 
-
-// Shortcode
-function post_function( $atts = array() ) {
-  ob_start();
-  // set up default parameters
-  extract(shortcode_atts(array(
-   'type' => 'post',
-   'item' => 3
-  ), $atts));
-?>
-<div class="container">
-  <div class="row">
-  <?php
-      $args = array( 'post_type' => $type, 'posts_per_page' => $item ,'ignore_sticky_posts' => 1);
-      $loop = new WP_Query( $args );
-      while ( $loop->have_posts() ) : $loop->the_post();
-        get_template_part( 'template-parts/content', 'post' );
-      endwhile;
-  ?>
-  </div>
-</div>
-<?php
-wp_reset_postdata();
-return ob_get_clean();
-}
-// add_filter( 'widget_text', 'do_shortcode' );
-add_shortcode('POLASH_POST', 'post_function');
-
 require_once trailingslashit(get_template_directory()) . '/inc/shortcode-blog.php';
 require_once trailingslashit(get_template_directory()) . '/inc/shortcode-activity.php';
+require_once trailingslashit(get_template_directory()) . '/inc/shortcode-narshindi.php';

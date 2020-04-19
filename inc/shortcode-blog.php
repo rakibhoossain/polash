@@ -8,7 +8,7 @@ function front_blog_function( $atts = array() ) {
    'pt' => 130,
    'pb' => 100,
    'title' => '',
-   'sub_title' => ''
+   'sub_title' => '',
   ), $atts));
 ?>
 
@@ -45,7 +45,7 @@ function front_blog_function( $atts = array() ) {
                                         <span><i class="far fa-calendar-alt"></i> <a href="<?php the_permalink(); ?>"><time><?php the_time('F j, Y'); ?></time></a></span>
                                         <span><i class="far fa-comment"></i> <a href="<?php the_permalink(); ?>"><?php echo get_comments_number();?><a></span>
                                     </div>
-                                    <p><?php the_excerpt()?></p>
+                                    <p><?php echo wp_trim_words( get_the_excerpt(), 15 ); ?></p>
                                     <a class="btn green-btn" href="<?php the_permalink(); ?>">আরো পড়ুন  <i class="far fa-long-arrow-right"></i></a>
                                 </div>
                             </div>

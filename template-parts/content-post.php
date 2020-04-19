@@ -22,7 +22,7 @@
             <div class="blog-title">
                 <h3><a href="<?php the_permalink(); ?>"><?php the_title()?></a></h3>
             </div>
-            <p><?php the_excerpt()?></p>
+            <p><?php echo wp_trim_words( get_the_excerpt(), 15 ); ?></p>
             <a class="btn green-btn" href="<?php the_permalink(); ?>">আরো পড়ুন  <i class="far fa-long-arrow-right"></i></a>
         </div>
     </div>

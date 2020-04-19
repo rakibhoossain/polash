@@ -181,6 +181,10 @@ object {
   text-decoration: none;
 }
 
+.breadcrumb-text p{
+  color: #fff;
+}
+
 /* next prev */
 .child-pagination,
 .posts-navigation,
@@ -292,15 +296,16 @@ justify-content: space-between ;
 }
 
 .breaking-news ul li {
-  display: block
+  display: block;
+  padding: 5px 10px 0;
+  display: block;
+  color: #ffffff;
+  white-space: nowrap;
+  background: #03b664;
 }
 
 .breaking-news ul a {
   color: #ffffff;
-  padding: 5px 10px 0;
-  display: block;
-  white-space: nowrap;
-  background: #03b664;
 }
 
 .screen-reader-text, 

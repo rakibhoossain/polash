@@ -601,53 +601,53 @@ function magazil_customize_register( $wp_customize ) {
         //  ===================================
         //  ====        Sidebar            ====
         //  ===================================
-        $wp_customize->add_section('magazil_sidebar_controls', array(
-            'title' => __('Sidebar', 'magazil'),
-            'panel' => 'magazil_panel',
-            'priority' => 8,
-        ));
+        // $wp_customize->add_section('magazil_sidebar_controls', array(
+        //     'title' => __('Sidebar', 'magazil'),
+        //     'panel' => 'magazil_panel',
+        //     'priority' => 8,
+        // ));
 
         /**
 		 * Enable sticky sidebar
 		 */
-		$wp_customize->add_setting( 'magazil_enable_sticky_sidebar',array(
-			'sanitize_callback' => 'magazil_sanitize_checkbox',
-			'default'           => true,
-		));
+		// $wp_customize->add_setting( 'magazil_enable_sticky_sidebar',array(
+		// 	'sanitize_callback' => 'magazil_sanitize_checkbox',
+		// 	'default'           => true,
+		// ));
 		/**
 		 * Enable sticky sidebar
 		 */
-		$wp_customize->add_control( new Customizer_Toggle_Control(
-			$wp_customize,
-			'magazil_enable_sticky_sidebar',
-			array(
-				'type'    => 'ios',
-				'label'   => esc_html__( 'Enable sticky sidebar', 'magazil' ),
-				'description'     => esc_html__( 'You can chose your option.', 'magazil' ),
-				'section' => 'magazil_sidebar_controls',
-			)
-		));
+		// $wp_customize->add_control( new Customizer_Toggle_Control(
+		// 	$wp_customize,
+		// 	'magazil_enable_sticky_sidebar',
+		// 	array(
+		// 		'type'    => 'ios',
+		// 		'label'   => esc_html__( 'Enable sticky sidebar', 'magazil' ),
+		// 		'description'     => esc_html__( 'You can chose your option.', 'magazil' ),
+		// 		'section' => 'magazil_sidebar_controls',
+		// 	)
+		// ));
 
 		/**
 		 * Enable smooth mousewheel
 		 */
-		$wp_customize->add_setting( 'magazil_enable_smooth_mousewheel',array(
-			'sanitize_callback' => 'magazil_sanitize_checkbox',
-			'default'           => true,
-		));
+		// $wp_customize->add_setting( 'magazil_enable_smooth_mousewheel',array(
+		// 	'sanitize_callback' => 'magazil_sanitize_checkbox',
+		// 	'default'           => true,
+		// ));
 		/**
 		 * Enable smooth mousewheel
 		 */
-		$wp_customize->add_control( new Customizer_Toggle_Control(
-			$wp_customize,
-			'magazil_enable_smooth_mousewheel',
-			array(
-				'type'    => 'ios',
-				'label'   => esc_html__( 'Enable smooth scrolling', 'magazil' ),
-				'description'     => esc_html__( 'You can chose your option.', 'magazil' ),
-				'section' => 'magazil_sidebar_controls',
-			)
-		));
+		// $wp_customize->add_control( new Customizer_Toggle_Control(
+		// 	$wp_customize,
+		// 	'magazil_enable_smooth_mousewheel',
+		// 	array(
+		// 		'type'    => 'ios',
+		// 		'label'   => esc_html__( 'Enable smooth scrolling', 'magazil' ),
+		// 		'description'     => esc_html__( 'You can chose your option.', 'magazil' ),
+		// 		'section' => 'magazil_sidebar_controls',
+		// 	)
+		// ));
 
         //  ===================================
         //  ====        Footer          ====

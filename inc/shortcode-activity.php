@@ -14,12 +14,12 @@ function front_activity_function( $atts = array() ) {
 
 <!-- case-area-start -->
             <div class="case-area black-bg pos-rel pt-<?php echo $pt; ?> pb-<?php echo $pb; ?>">
-                <div class="shape d-none d-xl-block">
-                    <div class="shape-item case-01 bounce-animate"><img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/shape/shape-1.png');?>  " alt=""></div>
-                    <div class="shape-item case-02"><img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/shape/shape-2.png');?> " alt=""></div>
-                    <div class="shape-item case-03"><img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/shape/shape-4.png');?> " alt=""></div>
-                    <div class="shape-item case-04 bounce-animate"><img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/shape/shape-3.png');?> " alt=""></div>
-                </div>
+<!--                 <div class="shape d-none d-xl-block">
+                    <div class="shape-item case-01 bounce-animate"><img src="<?php //echo esc_url(get_template_directory_uri() . '/assets/img/shape/shape-1.png');?>  " alt=""></div>
+                    <div class="shape-item case-02"><img src="<?php //echo esc_url(get_template_directory_uri() . '/assets/img/shape/shape-2.png');?> " alt=""></div>
+                    <div class="shape-item case-03"><img src="<?php //echo esc_url(get_template_directory_uri() . '/assets/img/shape/shape-4.png');?> " alt=""></div>
+                    <div class="shape-item case-04 bounce-animate"><img src="<?php //echo esc_url(get_template_directory_uri() . '/assets/img/shape/shape-3.png');?> " alt=""></div>
+                </div> -->
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-8 col-lg-8 offset-lg-2 offset-xl-2">
@@ -37,7 +37,7 @@ function front_activity_function( $atts = array() ) {
                         ?>
                         <div class="col-xl-12">
                             <div class="case-wrapper white-bg">
-                                <div class="case-text">
+                                <div class="case-text pb-2">
                                     <h3><a href="<?php the_permalink(); ?>"><?php the_title()?></a></h3>
 <!--                                     <div class="case-name">
                                         <div class="case-say-img">
@@ -56,10 +56,20 @@ function front_activity_function( $atts = array() ) {
                                 <div class="case-meta">
                                     <div class="f-cat f-left">
                                         <?php
-                                        $categories = get_the_category();
-                                        if ( ! empty( $categories ) ) {
-                                            echo '<a href="' . esc_url( get_category_link( $categories[0]->term_id ) ) . '">' . esc_html( $categories[0]->name ) . '</a>';
+                                        if(get_post_type( get_the_ID() ) == 'activity'){
+                                            $activity_categories = get_the_terms( get_the_ID() , 'activity_category' );
+                                            if ( ! empty( $activity_categories ) ) {
+                                                echo '<a href="' . esc_url( get_term_link( $activity_categories[0]->term_id ) ) . '">' . esc_html( $activity_categories[0]->name ) . '</a>';
+                                            }
+                                        }else{
+                                            $categories = get_the_category($post->ID);
+                                            if ( ! empty( $categories ) ) {
+                                                echo '<a href="' . esc_url( get_category_link( $categories[0]->term_id ) ) . '">' . esc_html( $categories[0]->name ) . '</a>';
+                                            }
                                         }
+
+
+
                                         ?>
                                     </div>
 <!--                                     <div class="f-meta-list f-right">
@@ -78,7 +88,7 @@ function front_activity_function( $atts = array() ) {
                                     </div> -->
                                 </div>
                                 <div class="case-info">
-                                    <p><?php the_excerpt()?></p>
+                                    <p><?php echo wp_trim_words( get_the_excerpt(), 15 ); ?></p>
                                     <div class="b-button">
                                         <a href="<?php the_permalink(); ?>"><span>আরো পড়ুন</span> <i class="far fa-long-arrow-right"></i></a>
                                     </div>
