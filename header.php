@@ -32,6 +32,7 @@
                         <div class="col-xl-6 col-lg-8 col-md-5 col-8 d-flex align-items-center">
                             <div class="header-top-wrapper">
                                 <div class="header-info">
+                                    <span><i class="far fa-phone"></i> <a href="tel:<?php echo get_theme_mod( 'magazil_phone', '+8801776217594' ); ?>"><?php echo get_theme_mod( 'magazil_phone', '+8801776217594' ); ?></a></span>
                                     <span><i class="far fa-envelope-open"></i> <a href="mailto:<?php echo get_theme_mod( 'magazil_email', 'serakib@gmail.com' ); ?>" class="__cf_email__"><?php echo get_theme_mod( 'magazil_email', 'serakib@gmail.com' ); ?></a></span>
                                 </div>
                             </div>
@@ -39,11 +40,7 @@
                         <div class="col-xl-6 col-lg-4 col-md-7 col-4">
                             <div class="header-top-right">
                                 <div class="header-login f-right">
-                                	<?php if(is_user_logged_in()): ?>
-                                    <a href="<?php echo wp_logout_url( home_url() ); ?>"><i class="far fa-user"></i> Logout</a>
-                                    <?php else: ?>
-                                    <a href="<?php echo wp_login_url(); ?>"><i class="far fa-user"></i> Login</a>
-                                    <?php endif; ?>
+                                    <a href="#" class="btn"><i class="far fa-circle"></i> &nbsp; জরুরি যোগাযোগ</a>
                                 </div>
                                 <div class="header-icon nav f-right d-none d-md-block">
 									<?php
@@ -68,6 +65,9 @@
                                 </div>
                             </div>
                         </div>
+                        
+
+
                     </div>
                 </div>
             </div>
@@ -90,7 +90,7 @@
 
                             </div>
                         </div>
-                        <div class="col-xl-6 col-lg-7">
+                        <div class="col-xl-9 col-lg-10">
                             <div class="main-menu text-center">
                             	<nav id="mobile-menu">
                                 <?php
@@ -105,19 +105,6 @@
 									);
 									?>					
 								</nav>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 d-none d-lg-block">
-                            <div class="header-right">
-                                <div class="header-right-info f-right d-none d-lg-block">
-                                    <div class="header-right-text text-right f-left">
-                                        <h5>যোগাযোগ</h5>
-                                        <span><a href="tel:<?php echo get_theme_mod( 'magazil_phone', '+8801776217594' ); ?>"><?php echo get_theme_mod( 'magazil_phone', '+8801776217594' ); ?></a></span>
-                                    </div>
-                                    <div class="heder-right-icon f-right">
-                                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/icon/icon.png') ; ?>" alt="<?php bloginfo( 'name' ); ?>">
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="col-12">

@@ -87,7 +87,7 @@ if ( ! function_exists( 'polash_before_post' ) ) :
         if (has_header_image()):
     ?>
     <!-- breadcrumb-area-start -->
-    <div class="breadcrumb-area pt-150 pb-155" style="background-image:url(<?php echo esc_url( get_header_image() ); ?>)">
+    <div class="breadcrumb-area pt-50 pb-55" style="background-image:url(<?php echo esc_url( get_header_image() ); ?>)">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">

@@ -43,7 +43,6 @@ function front_blog_function( $atts = array() ) {
                                 <div class="blog-content">
                                     <div class="blog-meta">
                                         <span><i class="far fa-calendar-alt"></i> <a href="<?php the_permalink(); ?>"><time><?php the_time('F j, Y'); ?></time></a></span>
-                                        <span><i class="far fa-comment"></i> <a href="<?php the_permalink(); ?>"><?php echo get_comments_number();?><a></span>
                                     </div>
                                     <p><?php echo wp_trim_words( get_the_excerpt(), 15 ); ?></p>
                                     <a class="btn green-btn" href="<?php the_permalink(); ?>">আরো পড়ুন  <i class="far fa-long-arrow-right"></i></a>

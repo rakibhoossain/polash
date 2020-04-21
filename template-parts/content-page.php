@@ -8,7 +8,7 @@
  */
 
 ?>
-<div class="case-area">
+<div class="case-area pt-50 pb-55">
 	<div class="container">
 	<div class="row">
 		<div class="col-md-12">
